@@ -4,8 +4,6 @@ import 'bloc/auth/auth_bloc.dart';
 import 'routes/app_routes.dart';
 import 'screens/sign_in_screen.dart';
 import 'screens/calendar_screen.dart';
-import 'screens/adding_screen.dart';
-import 'screens/summary_screen.dart';
 
 void main() {
   runApp(const FlexRiseApp());
@@ -27,8 +25,6 @@ class FlexRiseApp extends StatelessWidget {
         routes: {
           AppRoutes.signIn: (context) => SignInScreen(),
           AppRoutes.calendar: (context) => const CalendarScreen(),
-          AppRoutes.adding: (context) => const AddingScreen(),
-          AppRoutes.summary: (context) => const SummaryScreen(),
         },
       ),
     );
