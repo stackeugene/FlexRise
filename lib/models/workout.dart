@@ -10,4 +10,18 @@ class Workout {
     required this.sets,
     required this.repetitions,
   });
+
+  Map<String, dynamic> toJson() => {
+        'date': date.toIso8601String(),
+        'type': type,
+        'sets': sets,
+        'repetitions': repetitions,
+      };
+
+  factory Workout.fromJson(Map<String, dynamic> json) => Workout(
+        date: DateTime.parse(json['date']),
+        type: json['type'],
+        sets: json['sets'],
+        repetitions: json['repetitions'],
+      );
 }
