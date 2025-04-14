@@ -27,13 +27,26 @@ class SignInScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                'Sign In',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
               TextField(
                 controller: _emailController,
-                decoration: const InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'you@email.com',
+                  border: OutlineInputBorder(),
+                ),
               ),
+              const SizedBox(height: 16),
               TextField(
                 controller: _passwordController,
-                decoration: const InputDecoration(labelText: 'Password'),
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                ),
                 obscureText: true,
               ),
               const SizedBox(height: 20),
@@ -46,18 +59,29 @@ class SignInScreen extends StatelessWidget {
                         ),
                       );
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  minimumSize: const Size(double.infinity, 50),
+                ),
                 child: const Text('Sign In'),
               ),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  // Navigate to Sign-Up screen (placeholder for now)
+                  // Placeholder for Sign-Up navigation
                 },
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.blue,
+                ),
                 child: const Text('Sign Up'),
               ),
               TextButton(
                 onPressed: () {
-                  // Handle "Forgot Password" (placeholder)
+                  // Placeholder for Forgot Password
                 },
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.blue,
+                ),
                 child: const Text('Forgot Password?'),
               ),
             ],

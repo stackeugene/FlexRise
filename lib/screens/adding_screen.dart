@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../bloc/data/data_bloc.dart';
+import '../bloc/data/data_event.dart';
+import '../models/workout.dart';
+import '../models/meal.dart';
 
 class AddingScreen extends StatefulWidget {
   const AddingScreen({super.key});
@@ -100,7 +105,27 @@ class _AddingScreenState extends State<AddingScreen> {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Save the entry (placeholder for now)
+              if (_type == 'Workout') {
+                context.read<DataBloc>().add(
+                      AddWorkout(
+                        Workout(
+                          date: _selectedDay,
+                          type: _type,
+                          sets: _sets,
+                          repetitions: _repetitions,
+                        ),
+                      ),
+                    );
+              } else {
+                context.read<DataBloc>().add(
+                      AddMeal(
+                        Meal(
+                          date: _selectedDay,
+                          type: _type,
+                        ),
+                      ),
+                    );
+              }
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Entry Saved!')),
               );

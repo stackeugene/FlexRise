@@ -27,9 +27,4 @@ class AddMeal extends DataEvent {
   List<Object> get props => [meal];
 }
 
-class LoadData extends DataEvent {
-  const LoadData(); // Ensure const constructor is explicitly defined
-
-  @override
-  List<Object> get props => [];
-}
+class LoadData extends DataEvent {}

@@ -34,7 +34,8 @@ dependencies:
   equatable: ^2.0.5
   table_calendar: ^3.0.9
   fl_chart: ^0.68.0
-  path_provider: ^2.1.4  # For file storage
+  path_provider: ^2.1.4
+  http: ^1.2.2  # For API calls
   
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
