@@ -20,7 +20,7 @@ class SignInScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('FlexRise - Sign In'),
+          title: const Text('FlexRise - Sign In'), // First instance of "Sign In" (in the AppBar)
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -28,7 +28,7 @@ class SignInScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Sign In',
+                'Sign In', // Second instance of "Sign In" (in the body)
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
@@ -67,18 +67,14 @@ class SignInScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               TextButton(
-                onPressed: () {
-                  // Placeholder for Sign-Up navigation
-                },
+                onPressed: () {},
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.blue,
                 ),
                 child: const Text('Sign Up'),
               ),
               TextButton(
-                onPressed: () {
-                  // Placeholder for Forgot Password
-                },
+                onPressed: () {},
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.blue,
                 ),
