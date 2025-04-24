@@ -1,216 +1,161 @@
-FlexRise (FR) - Fitness Tracking App
-Overview
-FlexRise (FR) is a fitness tracking app built with Flutter, designed to help users log and analyze their workouts and meals. It was developed as a class project to demonstrate state management, file support, and REST API integration, while providing a user-friendly experience for fitness enthusiasts. The app allows users to track exercises, meals, and nutrition, visualize progress through charts, and ensure data persistence with local storage and a mock API.
-Features
+# FlexRise (FR) - Fitness Tracking App 💪
 
-Workout Logging:
-Log exercises with details like type (e.g., Push-ups, Squats), body parts targeted (Chest, Back, etc.), sets, reps, and weight.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+FlexRise is a fitness tracking application built with Flutter. It helps users log and analyze their workouts and meals, demonstrating state management (BLoC), local file storage (JSON), and REST API integration with a mock backend.
 
-Meal Logging:
-Log meals with details like type (Breakfast, Lunch, etc.), time consumed, and nutrition facts (carbs, fat, protein in grams).
+## Overview
 
+FlexRise (FR) was developed as a class project to showcase core Flutter concepts while providing a practical tool for fitness enthusiasts. The app allows users to:
 
-Calendar View:
-Displays logged days with color-coded markers based on body parts exercised (mixed colors for multiple body parts).
+*   Track detailed exercise information (type, body parts, sets, reps, weight).
+*   Log meals with nutritional data (type, time, carbs, fat, protein).
+*   Visualize workout history on a color-coded calendar.
+*   Analyze workout trends and daily nutrition via charts.
+*   Ensure data persistence through local JSON files and synchronization with a mock API (MockAPI).
 
+## Features
 
-Summary View:
-Line chart for workout trends (by exercise type, week/month).
-Pie chart for nutrition breakdown (carbs, fat, protein) on a selected day.
+*   **Workout Logging:** Log exercises with details like type (e.g., Push-ups, Squats), body parts targeted (Chest, Back, etc.), sets, reps, and weight.
+*   **Meal Logging:** Log meals with details like type (Breakfast, Lunch, etc.), time consumed, and nutrition facts (carbs, fat, protein in grams).
+*   **Calendar View:** Displays logged days with color-coded markers based on body parts exercised (colors are mixed if multiple body parts were trained on the same day).
+*   **Summary View:**
+    *   Line chart for workout trends (view by exercise type, aggregated weekly or monthly).
+    *   Pie chart for nutrition breakdown (carbs, fat, protein) for any selected day with logged meals.
+*   **Data Persistence:** Saves user data locally using JSON files (`flexrise_data.json`).
+*   **API Sync:** Optionally syncs data with a mock API service (MockAPI), falling back gracefully to local storage if the API is unavailable.
 
+## Screenshots
 
-Data Persistence:
-Saves data locally using JSON files.
-Syncs with a mock API (MockAPI) with fallback to local storage if the API is unavailable.
+| Adding Screen (Workout)                                                                          | Adding Screen (Meal)                                                                                 |
+| :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: |
+| ![Adding Screen - Workout](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_workout.png) | ![Adding Screen - Meal Details](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_meal_details.png) |
 
+| Calendar Screen                                                                                    | Summary Screen (Workouts)                                                                              |
+| :-------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
+| ![Calendar Screen - Mixed Colors](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/calendar_screen_mixed_colors.png) | ![Summary Screen - Workouts](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_workouts.png) |
 
+| Summary Screen (Nutrition)                                                                               |
+| :-------------------------------------------------------------------------------------------------------: |
+| ![Summary Screen - Nutrition Pie Chart](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_nutrition_pie.png) |
 
-Screenshots
-Adding Screen (Workout)
+*(Note: Ensure the screenshot paths in the `main` branch of `stackeugene/flexrise` are correct for the images to display properly)*
 
-Adding Screen (Meal)
+## Prerequisites
 
-Calendar Screen
-
-Summary Screen (Workouts)
-
-Summary Screen (Nutrition)
-
-Prerequisites
 Before running the app, ensure you have the following installed:
 
-Flutter (version 3.0.0 or higher)
-Dart (included with Flutter)
-A code editor (e.g., VS Code with Flutter and Dart extensions)
-A device/emulator or Chrome for web deployment
+*   Flutter (version 3.0.0 or higher)
+*   Dart (included with Flutter)
+*   A code editor (e.g., VS Code with Flutter and Dart extensions)
+*   A target device/emulator (Android/iOS) or Chrome for web deployment
 
-Setup Instructions
+## Setup Instructions
 
-Clone the Repository:
-git clone https://github.com/your-username/flexrise.git
-cd flexrise
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/stackeugene/flexrise.git
+    cd flexrise
+    ```
 
+2.  **Install Dependencies:** Run the following command to install the required packages:
+    ```bash
+    flutter pub get
+    ```
 
-Install Dependencies:Run the following command to install the required packages:
-flutter pub get
+3.  **Set Up MockAPI (Optional):**
+    *   The app is configured to use a mock API for remote data storage via [MockAPI](https://mockapi.io/). You can create your own endpoint if desired.
+    *   Update the `baseUrl` in `lib/services/api_service.dart` with your MockAPI project URL:
+      ```dart
+      // lib/services/api_service.dart
+      final String baseUrl = 'https://your-mockapi-url.com'; // Replace with your URL
+      ```
+    *   If you skip this step or the API is unreachable, the app will default to using local JSON file storage.
 
+4.  **Run the App:**
+    *   **Web (Chrome):**
+        ```bash
+        flutter run -d chrome
+        ```
+    *   **Emulator or Physical Device:**
+        ```bash
+        flutter run
+        ```
 
-Set Up MockAPI (Optional):
+## Usage Guide
 
-The app uses a mock API for remote data storage. You can create your own mock API using MockAPI.
-Update the baseUrl in lib/services/api_service.dart with your MockAPI URL:final String baseUrl = 'https://your-mockapi-url.com';
+1.  **Login:**
+    *   Use any email and password to log in. This is a dummy authentication screen for demonstration purposes.
+2.  **Add a Workout:**
+    *   Navigate to the "Add" tab.
+    *   Select "Workout" from the type dropdown.
+    *   Choose an exercise type, select the body part(s) targeted, and enter sets, reps, and weight.
+    *   Tap "Save".
+3.  **Add a Meal:**
+    *   Navigate to the "Add" tab.
+    *   Select "Meal" from the type dropdown.
+    *   Specify the meal type (e.g., Breakfast), the time it was consumed, and the nutritional breakdown (carbs, fat, protein in grams).
+    *   Tap "Save".
+4.  **View Calendar:**
+    *   Go to the "Calendar" tab.
+    *   Days with logged workouts are marked with color-coded dots. Colors are mixed if multiple body parts were trained on the same day.
+5.  **View Summary:**
+    *   Go to the "Summary" tab.
+    *   Select the "Workouts" sub-tab to view a line chart showing workout trends (can be filtered by exercise type and viewed weekly/monthly).
+    *   Select the "Meals" sub-tab and choose a specific day from the dropdown to see a pie chart visualizing the macronutrient breakdown (carbs, fat, protein) for that day.
 
+## Technical Details
 
-If you skip this step, the app will fall back to local storage.
+### Tech Stack
 
+*   **Framework:** Flutter (Dart)
+*   **State Management:** `flutter_bloc` (BLoC pattern)
+*   **Local Storage:** `path_provider` for accessing the file system, data stored in JSON format.
+*   **API Communication:** `http` package for REST API calls to MockAPI.
+*   **UI Components:**
+    *   `table_calendar`: For the interactive calendar view.
+    *   `fl_chart`: For creating the line (workout trends) and pie (nutrition breakdown) charts.
 
-Run the App:
+### Architecture
 
-To run on Chrome (web):flutter run -d chrome
+*   **State Management (BLoC):**
+    *   `DataBloc`: Manages the application's state related to workouts and meals. It processes events like `AddWorkout`, `AddMeal`, `LoadData`, `FetchDataFromApi`, etc.
+    *   `DataState`: Represents the current state, holding lists of `Workout` and `Meal` objects (`List<Workout>`, `List<Meal>`).
+*   **File Support:**
+    *   `FileService`: Handles reading from and writing data to a local JSON file (`flexrise_data.json`) in the application's documents directory.
+*   **REST API Integration:**
+    *   `ApiService`: Contains methods for interacting with the MockAPI backend (fetching and posting workout/meal data). Includes error handling and fallback logic to use `FileService` if API calls fail.
+*   **Key Features Implementation:**
+    *   **Color-Coded Calendar:** A custom algorithm determines the marker color for each day on the calendar based on the body parts trained. It mixes colors if multiple distinct body parts were targeted.
+    *   **Nutrition Pie Chart:** Uses `fl_chart` to dynamically generate a pie chart representing the proportion of carbs, fat, and protein for a selected day's meals.
 
+### Project Structure
 
-To run on an emulator or physical device:flutter run
-
-
-
-
-
-Usage Guide
-
-Login:
-
-Use any email and password to log in (dummy authentication for demo purposes).
-
-
-Add a Workout:
-
-Go to the "Add" tab.
-Select "Workout" as the type.
-Choose an exercise type, body parts targeted, sets, reps, and weight.
-Save the entry.
-
-
-Add a Meal:
-
-Go to the "Add" tab.
-Select "Meal" as the type.
-Specify the meal type (e.g., Breakfast), time consumed, and nutrition facts (carbs, fat, protein).
-Save the entry.
-
-
-View Calendar:
-
-Go to the "Calendar" tab.
-Days with logged workouts are marked with color-coded dots (colors mix for multiple body parts).
-
-
-View Summary:
-
-Go to the "Summary" tab.
-Select "Workouts" to see a line chart of your workout trends.
-Select "Meals" and choose a day to see a pie chart of your nutrition breakdown.
-
-
-
-Technical Details
-Tech Stack
-
-Framework: Flutter (Dart)
-State Management: flutter_bloc (BLoC pattern)
-File Storage: path_provider for local JSON storage
-REST API: http package for MockAPI integration
-UI Components:
-table_calendar for the calendar view
-fl_chart for line and pie charts
-
-
-
-Architecture
-
-State Management:
-DataBloc manages the app state, handling events like AddWorkout, AddMeal, and LoadData.
-DataState stores the app’s data (List<Workout> and List<Meal>).
-
-
-File Support:
-FileService handles reading/writing data to a local JSON file (flexrise_data.json).
-
-
-REST API:
-ApiService makes HTTP requests to a mock API for fetching and adding workouts/meals.
-Fallback to local storage if the API fails.
-
-
-Key Features:
-Color-coded calendar markers using a custom color-mixing algorithm.
-Nutrition pie chart for visualizing carbs, fat, and protein.
-
-
-
-Project Structure
+```text
 flex_rise/
 ├── lib/
 │   ├── bloc/
-│   │   ├── data/
-│   │   │   ├── data_bloc.dart
-│   │   │   ├── data_event.dart
-│   │   │   └── data_state.dart
-│   ├── models/
+│   │   └── data/               # BLoC related files
+│   │       ├── data_bloc.dart
+│   │       ├── data_event.dart
+│   │       └── data_state.dart
+│   ├── models/                 # Data models
 │   │   ├── workout.dart
 │   │   └── meal.dart
-│   ├── screens/
+│   ├── screens/                # UI Screens
 │   │   ├── adding_screen.dart
 │   │   ├── calendar_screen.dart
 │   │   └── summary_screen.dart
-│   ├── services/
+│   ├── services/               # Backend/Local services
 │   │   ├── api_service.dart
 │   │   └── file_service.dart
-│   └── main.dart
-├── screenshots/
+│   ├── widgets/                # Reusable UI Widgets (if any)
+│   └── main.dart               # App entry point
+├── screenshots/                # Application screenshots
 │   ├── adding_screen_workout.png
 │   ├── adding_screen_meal_details.png
 │   ├── calendar_screen_mixed_colors.png
 │   ├── summary_screen_workouts.png
 │   └── summary_screen_nutrition_pie.png
-├── pubspec.yaml
-└── README.md
-
-Challenges and Solutions
-
-Bottom Overflow Error:
-Fixed by wrapping the AddingScreen in a SingleChildScrollView.
-
-
-Type Safety Issues:
-Ensured proper typing in DataState (List<Workout> and List<Meal>) and fixed missing imports.
-
-
-Complex Features:
-Implemented a color-mixing algorithm for the calendar markers and a pie chart for nutrition using fl_chart.
-
-
-
-Future Enhancements
-
-Add real user authentication (e.g., Firebase).
-Implement a goals feature (e.g., weekly workout or nutrition goals).
-Enhance analytics with trends over longer periods.
-Improve UI/UX with animations and better styling.
-
-Contributing
-Contributions are welcome! To contribute:
-
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes and commit (git commit -m "Add your feature").
-Push to your branch (git push origin feature/your-feature).
-Open a Pull Request.
-
-Please ensure your code follows the existing style and includes tests if applicable.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-Contact
-For questions or feedback, reach out to me at your-email@example.com or open an issue on GitHub.
-
-Happy tracking with FlexRise! 💪
+├── pubspec.yaml                # Project dependencies and metadata
+└── README.md                   # This file
