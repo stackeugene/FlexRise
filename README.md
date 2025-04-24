@@ -29,7 +29,7 @@ FlexRise (FR) was developed as a class project to showcase core Flutter concepts
 
 | Adding Screen (Workout)                                                                          | Adding Screen (Meal)                                                                                 |
 | :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: |
-| ![Adding Screen - Workout] (https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_workout.png) | ![Adding Screen - Meal Details](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_meal.png) |
+| ![Adding Screen - Workout](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_workout.png) | ![Adding Screen - Meal Details](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_meal.png) |
 
 | Calendar Screen                                                                                    | Summary Screen (Workouts)                                                                              |
 | :-------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
