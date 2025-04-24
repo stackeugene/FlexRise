@@ -39,7 +39,6 @@ FlexRise (FR) was developed as a class project to showcase core Flutter concepts
 | :-------------------------------------------------------------------------------------------------------: |
 | ![Summary Screen - Nutrition Pie Chart](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_nutrition.png) |
 
-*(Note: Ensure the screenshot paths in the `main` branch of `stackeugene/flexrise` are correct for the images to display properly)*
 
 ## Prerequisites
 
