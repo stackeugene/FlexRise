@@ -18,22 +18,25 @@ class FileService {
   Future<Map<String, dynamic>> readData() async {
     try {
       final file = await _localFile;
-      if (await file.exists()) {
-        final contents = await file.readAsString();
-        return jsonDecode(contents);
-      }
-      return {'workouts': [], 'meals': []};
+      final contents = await file.readAsString();
+      final Map<String, dynamic> data = jsonDecode(contents);
+      return {
+        'workouts': (data['workouts'] as List<dynamic>?)
+                ?.map((e) => Workout.fromJson(e))
+                .toList() ??
+            [],
+        'meals': (data['meals'] as List<dynamic>?)
+                ?.map((e) => Meal.fromJson(e))
+                .toList() ??
+            [],
+      };
     } catch (e) {
       return {'workouts': [], 'meals': []};
     }
   }
 
-  Future<void> writeData(List<Workout> workouts, List<Meal> meals) async {
+  Future<void> writeData(Map<String, dynamic> data) async {
     final file = await _localFile;
-    final data = {
-      'workouts': workouts.map((w) => w.toJson()).toList(),
-      'meals': meals.map((m) => m.toJson()).toList(),
-    };
     await file.writeAsString(jsonEncode(data));
   }
 }

@@ -1,10 +1,10 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../models/workout.dart';
 import '../models/meal.dart';
 
 class ApiService {
-  static const String baseUrl = 'https://<your-project-id>.mockapi.io/api/v1'; // Replace with your MockAPI URL
+  final String baseUrl = 'https://mockapi.example.com'; // Replace with your MockAPI URL
 
   Future<List<Workout>> fetchWorkouts() async {
     final response = await http.get(Uri.parse('$baseUrl/workouts'));
@@ -12,7 +12,7 @@ class ApiService {
       final List<dynamic> data = jsonDecode(response.body);
       return data.map((json) => Workout.fromJson(json)).toList();
     } else {
-      throw Exception('Failed to load workouts');
+      throw Exception('Failed to fetch workouts');
     }
   }
 
@@ -22,7 +22,7 @@ class ApiService {
       final List<dynamic> data = jsonDecode(response.body);
       return data.map((json) => Meal.fromJson(json)).toList();
     } else {
-      throw Exception('Failed to load meals');
+      throw Exception('Failed to fetch meals');
     }
   }
 
