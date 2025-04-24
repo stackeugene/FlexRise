@@ -29,15 +29,15 @@ FlexRise (FR) was developed as a class project to showcase core Flutter concepts
 
 | Adding Screen (Workout)                                                                          | Adding Screen (Meal)                                                                                 |
 | :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: |
-| ![Adding Screen - Workout] (screenshots/adding_screen_workout.png) | ![Adding Screen - Meal Details](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_meal.png) |
+| ![Adding Screen - Workout] (https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_workout) | ![Adding Screen - Meal Details](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/adding_screen_meal.png) |
 
 | Calendar Screen                                                                                    | Summary Screen (Workouts)                                                                              |
 | :-------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
-| ![Calendar Screen - Mixed Colors](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/calendar_screen_mixed_colors.png) | ![Summary Screen - Workouts](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_workouts.png) |
+| ![Calendar Screen](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/calendar_screen.png) | ![Summary Screen - Workouts](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_workout.png) |
 
 | Summary Screen (Nutrition)                                                                               |
 | :-------------------------------------------------------------------------------------------------------: |
-| ![Summary Screen - Nutrition Pie Chart](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_nutrition_pie.png) |
+| ![Summary Screen - Nutrition Pie Chart](https://raw.githubusercontent.com/stackeugene/flexrise/main/screenshots/summary_screen_nutrition.png) |
 
 *(Note: Ensure the screenshot paths in the `main` branch of `stackeugene/flexrise` are correct for the images to display properly)*
 
